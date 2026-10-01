@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { jsonResponse } from "../../test/fixtures";
-import { ApiError, isNotFound, request, withUser } from "../client";
+import { ApiError, isNotFound, request, resolveApiBase, withUser } from "../client";
 
 describe("api client", () => {
   it("gets JSON from the proxied API", async () => {
@@ -28,6 +28,12 @@ describe("api client", () => {
     expect(isNotFound(error)).toBe(true);
     expect(isNotFound(new ApiError(500))).toBe(false);
     expect(isNotFound(new Error("x"))).toBe(false);
+  });
+
+  it("resolves the API base from the build configuration", () => {
+    expect(resolveApiBase(undefined)).toBe("/api");
+    expect(resolveApiBase("  ")).toBe("/api");
+    expect(resolveApiBase("https://ale-api.swone.fr//")).toBe("https://ale-api.swone.fr");
   });
 
   it("encodes the user id in query strings", () => {

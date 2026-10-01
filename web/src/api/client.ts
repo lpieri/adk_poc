@@ -10,7 +10,15 @@ export class ApiError extends Error {
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 
-const API_PREFIX = "/api";
+const DEV_PROXY_PREFIX = "/api";
+const TRAILING_SLASHES = /\/+$/;
+
+export const resolveApiBase = (configured: string | undefined): string => {
+  const base = configured?.trim().replace(TRAILING_SLASHES, "");
+  return base ? base : DEV_PROXY_PREFIX;
+};
+
+const API_PREFIX = resolveApiBase(import.meta.env.VITE_API_URL);
 const NO_CONTENT = 204;
 
 export const isNotFound = (error: unknown): boolean => {

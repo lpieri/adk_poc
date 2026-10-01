@@ -1,0 +1,8 @@
+*
+!requirements.txt
+!agents
+!app
+!equine
+**/__pycache__
+**/.adk
+**/.env

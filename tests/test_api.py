@@ -67,3 +67,9 @@ def test_manual_wakeup_and_places(client):
     assert client.post("/wakeup", json={"user_id": "u1", "place_id": "nope"}).status_code == 404
     assert client.delete(f"/places/{place['id']}", params={"user_id": "u1"}).status_code == 204
     assert client.delete(f"/places/{place['id']}", params={"user_id": "u1"}).status_code == 404
+
+def test_cors_origins_parsing():
+    from app.main import cors_origins
+
+    assert cors_origins("") == []
+    assert cors_origins("https://ale.swone.fr/, http://localhost:5173 ,") == ["https://ale.swone.fr", "http://localhost:5173"]

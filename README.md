@@ -41,7 +41,7 @@ assets-src/mascot/      # sources PNG de la mascotte (non servies)
 
 ```bash
 python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
+.venv/bin/pip install -r requirements-dev.txt
 cp .env.example .env   # puis renseigner GOOGLE_API_KEY
 ```
 
@@ -67,6 +67,39 @@ La géolocalisation et les notifications du navigateur exigent HTTPS ou `localho
 | `POST /presence` | Position GPS → réveil d'Ale à l'arrivée dans un lieu |
 | `POST /wakeup` | Réveil forcé pour un lieu |
 
+## Déploiement
+
+### Backend : image Docker
+
+```bash
+docker build -f docker/api/Dockerfile -t ale-api .
+docker run -d -p 8080:8080 --env-file .env \
+  -e ALE_CORS_ORIGINS=https://ale.example.com \
+  -v ale-data:/data ale-api
+```
+
+L'image écoute sur `$PORT` (8080 par défaut) et tourne en utilisateur non root. Les bases SQLite sont dans le volume `/data`, à monter pour conserver les données. Un healthcheck interroge `/health`.
+
+| Variable | Rôle |
+|---|---|
+| `GOOGLE_API_KEY` | Clé Gemini |
+| `ALE_MODEL` | Modèle (défaut `gemini-3.5-flash`) |
+| `ALE_CORS_ORIGINS` | Origine(s) du front, séparées par des virgules. Vide = aucun appel cross-origin |
+| `ALE_DATA_DIR` | Dossier des bases (défaut `/data` dans l'image) |
+
+### Frontend : Cloudflare Pages
+
+Projet Pages avec racine `web/`, commande de build `npm run build`, dossier de sortie `dist` (déclaré dans `web/wrangler.jsonc`). La variable `VITE_API_URL` (URL publique de l'API, ex. `https://ale-api.example.com`) est inlinée au build : la changer impose de redéployer. Sans elle, le front appelle `/api` (proxy Vite, dev uniquement).
+
+En ligne de commande :
+
+```bash
+cd web
+VITE_API_URL=https://ale-api.example.com npm run deploy   # build + wrangler pages deploy dist
+```
+
+Ajouter l'URL Pages à `ALE_CORS_ORIGINS` côté API. `public/_headers` pose le cache long des assets et les en-têtes de sécurité.
+
 ## Interface de dev ADK
 
 ```bash
@@ -83,5 +116,5 @@ cd web && npm run coverage  # frontend : 100 % de couverture des composants
 
 ## Limites
 
-- Pas d'authentification : l'identifiant utilisateur est généré et gardé dans le navigateur.
+- Pas d'authentification : l'identifiant utilisateur est généré et gardé dans le navigateur. Une API exposée publiquement est appelable par n'importe qui (données des chevaux, positions des lieux, quota Gemini) : ajouter une authentification avant toute mise en ligne réelle.
 - Les rations sont des ordres de grandeur issus des recommandations de nutrition équine, pas un avis vétérinaire.
