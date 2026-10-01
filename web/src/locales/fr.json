@@ -1,0 +1,243 @@
+{
+  "app": {
+    "name": "Ale"
+  },
+  "tabs": {
+    "label": "Navigation principale",
+    "chat": "Ale",
+    "horses": "Chevaux",
+    "places": "Lieux"
+  },
+  "common": {
+    "back": "Retour",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "add": "Ajouter",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "loading": "Chargement…",
+    "error": "Oups, quelque chose s'est mal passé. Réessaie dans un instant.",
+    "actionError": "L'action n'a pas pu aboutir. Vérifie ta connexion et réessaie.",
+    "notes": "Notes",
+    "optional": "facultatif"
+  },
+  "mascot": {
+    "alt": "Ale, la licorne dorée en sweat rose"
+  },
+  "chat": {
+    "greeting": "Salut, moi c'est Ale",
+    "subtitle": "Ta coach équine de poche : rations, soins, santé et séances. Pose-moi ta question !",
+    "suggestionsLabel": "Suggestions",
+    "suggestions": {
+      "ration": "Calcule la ration de mon cheval",
+      "pssm": "Mon cheval est PSSM1, que lui donner ?",
+      "stable": "Je suis à l'écurie",
+      "care": "Quels soins sont à prévoir ?"
+    },
+    "placeholder": "Écris à Ale…",
+    "send": "Envoyer",
+    "newConversation": "Nouvelle conversation",
+    "statusOnline": "Prête à t'aider",
+    "statusThinking": "Ale réfléchit…",
+    "statusTalking": "Ale répond…",
+    "typing": "Ale est en train d'écrire",
+    "you": "Toi",
+    "error": "Ale n'a pas pu répondre. Vérifie ta connexion et réessaie.",
+    "toolsLabel": "Outils utilisés",
+    "greetingLead": "Salut, moi c'est"
+  },
+  "tools": {
+    "list_horses": "Écurie consultée",
+    "get_horse": "Fiche cheval consultée",
+    "add_horse": "Cheval ajouté",
+    "update_horse": "Fiche mise à jour",
+    "log_weight": "Poids enregistré",
+    "add_health_entry": "Carnet de santé mis à jour",
+    "get_care_plan": "Soins à prévoir vérifiés",
+    "log_workout": "Séance enregistrée",
+    "get_stable_briefing": "Point écurie",
+    "list_conditions": "Pathologies consultées",
+    "calculate_ration": "Ration calculée",
+    "calculate_horse_ration": "Ration calculée",
+    "check_vitals": "Constantes évaluées",
+    "plan_session": "Séance planifiée",
+    "remember": "Noté dans ma mémoire"
+  },
+  "conditions": {
+    "pssm1": "PSSM1",
+    "colic_history": "Coliques à répétition",
+    "ems": "Syndrome métabolique (SME)",
+    "ppid": "Cushing (PPID)",
+    "gastric_ulcers": "Ulcères gastriques",
+    "equine_asthma": "Asthme équin (RAO)",
+    "laminitis": "Fourbure",
+    "hypp": "HYPP",
+    "dental_issues": "Problèmes dentaires"
+  },
+  "horses": {
+    "title": "Mes chevaux",
+    "subtitle": "Toute ton écurie, au même endroit.",
+    "add": "Ajouter un cheval",
+    "empty": "Aucun cheval pour l'instant. Ajoute ton premier compagnon !",
+    "newTitle": "Nouveau cheval",
+    "editTitle": "Modifier la fiche",
+    "deleteConfirm": "Supprimer {{name}} et tout son historique ?",
+    "age": "{{count}} an",
+    "age_other": "{{count}} ans",
+    "ageUnknown": "Âge inconnu",
+    "breedUnknown": "Race non précisée",
+    "weightValue": "{{value}} kg",
+    "stats": {
+      "age": "Âge",
+      "weight": "Poids",
+      "workload": "Travail",
+      "bodyCondition": "État corporel"
+    },
+    "bodyConditionValue": "{{value}} / 9",
+    "noConditions": "Aucune pathologie signalée"
+  },
+  "horseForm": {
+    "name": "Nom",
+    "namePlaceholder": "Ex. Tornade",
+    "breed": "Race",
+    "breedPlaceholder": "Ex. Selle Français",
+    "sex": "Sexe",
+    "birthYear": "Année de naissance",
+    "weight": "Poids (kg)",
+    "bodyCondition": "Note d'état corporel : {{value}} / 9",
+    "workload": "Niveau de travail",
+    "conditions": "Pathologies",
+    "notesPlaceholder": "Caractère, habitudes, allergies…"
+  },
+  "sex": {
+    "mare": "Jument",
+    "gelding": "Hongre",
+    "stallion": "Étalon"
+  },
+  "workload": {
+    "rest": "Repos",
+    "light": "Léger",
+    "moderate": "Modéré",
+    "intense": "Intense"
+  },
+  "ration": {
+    "title": "Ration du jour",
+    "forage": "Fourrage",
+    "concentrate": "Concentré",
+    "concentrateValue": "{{value}} kg · {{type}}",
+    "meals": "Repas par jour",
+    "maxPerMeal": "Max. par repas",
+    "starchCap": "Amidon max. par repas",
+    "oil": "Huile",
+    "vitaminE": "Vitamine E",
+    "salt": "Sel",
+    "water": "Eau",
+    "kg": "{{value}} kg",
+    "grams": "{{value}} g",
+    "ml": "{{value}} ml",
+    "iu": "{{value}} UI",
+    "liters": "{{min}} à {{max}} L",
+    "advice": "Conseils",
+    "warnings": "Points de vigilance"
+  },
+  "care": {
+    "title": "Soins à prévoir",
+    "empty": "Rien à signaler pour le moment.",
+    "status": {
+      "overdue": "En retard",
+      "due_soon": "Bientôt",
+      "ok": "À jour",
+      "unknown": "Inconnu"
+    },
+    "daysLeft": "Dans {{count}} jour",
+    "daysLeft_other": "Dans {{count}} jours",
+    "daysLate": "En retard de {{count}} jour",
+    "daysLate_other": "En retard de {{count}} jours",
+    "dueToday": "Aujourd'hui",
+    "noDate": "Aucune date connue"
+  },
+  "health": {
+    "title": "Carnet de santé",
+    "add": "Ajouter un soin",
+    "empty": "Le carnet est vide pour l'instant.",
+    "kind": "Type de soin",
+    "date": "Date",
+    "label": "Intitulé",
+    "labelPlaceholder": "Ex. Grippe-tétanos",
+    "nextDue": "Prochain rappel",
+    "nextDueValue": "Rappel le {{date}}",
+    "kinds": {
+      "vaccine": "Vaccin",
+      "deworming": "Vermifuge",
+      "farrier": "Maréchal-ferrant",
+      "dentist": "Dentiste",
+      "vet": "Vétérinaire",
+      "osteo": "Ostéopathe",
+      "other": "Autre"
+    }
+  },
+  "weight": {
+    "title": "Suivi du poids",
+    "add": "Ajouter une pesée",
+    "input": "Nouveau poids (kg)",
+    "empty": "Aucune pesée enregistrée.",
+    "chart": "Évolution du poids"
+  },
+  "workouts": {
+    "title": "Séances",
+    "add": "J'ai fait une séance",
+    "empty": "Aucune séance enregistrée.",
+    "discipline": "Discipline",
+    "duration": "Durée (min)",
+    "durationValue": "{{value}} min",
+    "intensity": "Intensité",
+    "disciplines": {
+      "dressage": "Dressage",
+      "jumping": "Saut",
+      "cross": "Cross",
+      "hack": "Balade",
+      "groundwork": "Travail à pied",
+      "lunging": "Longe"
+    },
+    "intensities": {
+      "light": "Légère",
+      "moderate": "Modérée",
+      "intense": "Intense"
+    }
+  },
+  "places": {
+    "title": "Mes lieux",
+    "subtitle": "Ale se réveille quand tu arrives à l'écurie.",
+    "empty": "Aucun lieu enregistré.",
+    "add": "Ajouter un lieu",
+    "name": "Nom du lieu",
+    "namePlaceholder": "Ex. Écurie des Saules",
+    "kind": "Type",
+    "kinds": {
+      "stable": "Écurie",
+      "home": "Maison",
+      "other": "Autre"
+    },
+    "radius": "Rayon (m)",
+    "radiusValue": "Rayon {{value}} m",
+    "lat": "Latitude",
+    "lng": "Longitude",
+    "useLocation": "Utiliser ma position actuelle",
+    "locating": "Localisation…",
+    "locationError": "Impossible de récupérer ta position.",
+    "simulate": "Simuler mon arrivée",
+    "simulateError": "Le réveil n'a pas pu être simulé.",
+    "deleteConfirm": "Supprimer le lieu {{name}} ?"
+  },
+  "wakeup": {
+    "toggle": "Réveil par localisation",
+    "toggleHint": "Ale te parle dès que tu arrives sur un de tes lieux.",
+    "arrived": "📍 Tu es arrivée à {{name}}",
+    "notificationTitle": "Ale · {{name}}"
+  },
+  "brand": {
+    "logoAlt": "Sway",
+    "subtitle": "Coach équine · par Sway"
+  }
+}

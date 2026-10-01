@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mulish";
+  src: url("/fonts/mulish.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Satoshi", system-ui, sans-serif;
+  --font-satoshi: "Satoshi", system-ui, sans-serif;
+  --font-display: "Satoshi", system-ui, sans-serif;
+  --font-mulish: "Mulish", system-ui, sans-serif;
+
+  --color-sway-black: #1d1d1f;
+  --color-subtle: #4b4b50;
+  --color-muted: #5f5f66;
+  --color-neutral: #fefefd;
+  --color-greige: #f3f0ec;
+  --color-hairline: rgba(0, 0, 0, 0.07);
+  --color-field: #f7f7f9;
+  --color-focus: #76b0f2;
+  --color-orange: #dc5d38;
+  --color-orange-soft: #ffe8e0;
+  --color-purple: #9360c8;
+  --color-purple-soft: #f1e8ff;
+  --color-magenta: #c84b80;
+  --color-magenta-soft: #fbe7f0;
+  --color-blue-soft: #e9f3ff;
+  --color-green: #1f8a5b;
+  --color-green-soft: #e3f3ea;
+  --color-link: #2f6fb0;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px -6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 30px -12px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 18px 40px -16px rgba(200, 75, 128, 0.35);
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-sway: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-bob: bob 1.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  --animate-float: float 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  --animate-blob: blob 14s ease-in-out infinite alternate;
+  --animate-blob-spin: blob-spin 22s linear infinite;
+  --animate-sway-up: sway-up 0.55s var(--ease-spring) both;
+  --animate-pop: pop 0.45s var(--ease-spring) both;
+  --animate-typing-dot: typing-dot 1.2s ease-in-out infinite;
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+    30% {
+      transform: translateY(-5px) rotate(-2deg) scale(1.01, 0.99);
+    }
+    65% {
+      transform: translateY(-2px) rotate(1.5deg) scale(0.995, 1.005);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg) scale(1, 1);
+    }
+    25% {
+      transform: translateY(-9px) rotate(-1.2deg) scale(1.01, 0.995);
+    }
+    50% {
+      transform: translateY(-14px) rotate(0.4deg) scale(0.995, 1.012);
+    }
+    75% {
+      transform: translateY(-6px) rotate(1deg) scale(1.005, 0.998);
+    }
+  }
+
+  @keyframes blob {
+    0% {
+      border-radius: 52% 48% 61% 39% / 40% 62% 38% 60%;
+      transform: scale(1);
+      filter: blur(26px);
+    }
+    50% {
+      border-radius: 41% 59% 45% 55% / 58% 41% 59% 42%;
+      transform: scale(1.06);
+      filter: blur(32px);
+    }
+    100% {
+      border-radius: 60% 40% 52% 48% / 45% 55% 45% 55%;
+      transform: scale(0.97);
+      filter: blur(28px);
+    }
+  }
+
+  @keyframes blob-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes sway-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes pop {
+    0% {
+      transform: scale(0.6) rotate(-12deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes typing-dot {
+    0%,
+    80%,
+    100% {
+      opacity: 0.25;
+      transform: translateY(0);
+    }
+    40% {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+:root {
+  --gradient-sway: linear-gradient(135deg, #dc5d38 0%, #c84b80 50%, #9360c8 100%);
+  --sway-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+@utility bg-gradient-sway {
+  background-image: var(--gradient-sway);
+}
+
+@utility sway-gradient-light {
+  background:
+    radial-gradient(at 20% 30%, #ec489a1a 0%, transparent 50%),
+    radial-gradient(at 20% 80%, #f973161a 5%, transparent 50%),
+    radial-gradient(at 50% 90%, #ec48991a 10%, transparent 60%),
+    radial-gradient(at 90% 80%, #3b82f61a 10%, transparent 80%);
+}
+
+@utility sway-blob {
+  background:
+    radial-gradient(circle at 50% 50%, #ec489a40 0%, transparent 62%),
+    radial-gradient(circle at 30% 62%, #f9731633 0%, transparent 52%),
+    radial-gradient(circle at 70% 62%, #3b82f630 0%, transparent 52%),
+    radial-gradient(circle at 50% 28%, #9360c82e 0%, transparent 50%);
+}
+
+@utility sway-panel-glow {
+  background:
+    radial-gradient(at 15% 20%, #ec489a14 0%, transparent 55%),
+    radial-gradient(at 85% 90%, #3b82f614 0%, transparent 60%),
+    radial-gradient(at 90% 10%, #f9731612 0%, transparent 50%),
+    var(--color-neutral);
+}
+
+@utility sway-grain {
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    opacity: 0.8;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    background-image: var(--sway-noise);
+  }
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-greige font-sans text-sway-black antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer base {
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+  }
+}
+
+input[type="range"] {
+  accent-color: var(--color-sway-black);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
